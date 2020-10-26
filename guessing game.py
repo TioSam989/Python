@@ -2,6 +2,9 @@ import os
 import random
 import time
 
+def pause() :
+    pause = (input(""))
+
 def counting() : #count at 3 secs using a "for piece"
 
     numbers = [0 ,1 ,2 ,3 ]
@@ -14,12 +17,99 @@ def counting() : #count at 3 secs using a "for piece"
         xchar = chr(xnumber)
         print("counting in " +  xchar)  
         if x == 3 :
+            clear()
             break
+            
         print(x)
 
 def areReady(option) : #function for the person that are ready to play, and will be redirecioned to other destiny, the game destiny
-    print("you joined in the areReady() function")
+    # print("you joined in the areReady() function")
     print("you choosed " + option)
+
+    print("1_  Numbers")
+    print("2_  Names")
+    print("3_ exit")
+    print("")
+    typeVar = int(input("Enter a interger number corresponds your choice :"))
+
+        
+
+    if typeVar == 1 : 
+        
+        clear()
+        print("wellcome to guess Number")
+        clientNumbers = int(input("choice a MAX number: "))
+        guessNumbers(clientNumbers)
+
+    elif typeVar == 2 :
+
+        clear()
+        print("wellcome to guess Names")
+        # name = str(input("write your name to play:"))
+        guessNames()
+
+    elif typeVar == 3 :
+        clear()
+        counting()
+        quit()
+        exit()
+
+    else :
+        clear()
+        print("you wrote something wrong")
+        print("")
+        print(ready)
+
+def guessNumbers(clientNumbers) : #this function generates a random number and you wanna shot the number
+    n = random.randint(1,clientNumbers)
+    # clientSTR = client
+    # str(client);
+    guess = int(input("Enter an interger from 1 to " + str(clientNumbers) + ":"))
+
+    while 1 :
+        print("")
+
+        if guess < n :
+            print("guess is low")
+            guess = int(input("Enter an interger from 1 to " + str(clientNumbers) + ":"))
+
+        if guess > n : 
+            print("guess is high ") 
+            guess = int(input("Enter an interger from 1 to " + str(clientNumbers) + ":"))
+
+        else :
+            print("you guessed it bro !!! congratulations")
+            pause()
+            break
+        print("")
+   
+def guessNames() : #this function generates a name and you wanna shot the name
+
+    myNameList = ['Davi', 'Luciano', 'Jocilene', 'Helena', 'Jorgina', 'Jose']
+    n = random.randint(0, 6)
+    randomList = myNameList[n]
+
+    print(randomList)
+    # n = random.randint(0, 6)
+
+    print("The names are " + (str(myNameList)) )
+    guess = str(input("Enter a names from 1 to 6 persons:"))
+
+    # print(n)
+    
+    while 1 :
+        print ("")
+
+        if randomList != guess :
+            print("guess again")
+            # print("the name list are " + str(myNameList))
+            guess = str(input("Enter a names from 1 to 6 persons:"))
+
+        else :
+            print("you guessed it bro !!! congratulations")
+            pause() 
+            break
+        print("")
 
 def areNotReady(option) : #function for the person that aren't ready to play, and will close the programm after 3 secs  
     print("you joined in the areNotReady() function")
@@ -29,6 +119,7 @@ def areNotReady(option) : #function for the person that aren't ready to play, an
 
     print("Bye, you are wellcome")
     exit()
+    quit()
 
 def wait(secs) : #function that freeze the screen during N secs using time.sleep(N) 
      time.sleep(secs)
@@ -82,10 +173,11 @@ def ways(): #function that choose where are you after a option
         
 def distribution(): #function distribuiner of functions
     while 1 :    
-        counting()
+        # counting()
         clear()
         wellcomeFunction()
         ways()
         # break
 
 distribution()
+
