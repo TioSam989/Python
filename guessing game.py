@@ -58,7 +58,9 @@ def areReady(option) : #function for the person that are ready to play, and will
         clear()
         print("you wrote something wrong")
         print("")
-        print(ready)
+        wait(1)
+        # pause()
+
 
 def guessNumbers(clientNumbers) : #this function generates a random number and you wanna shot the number
     n = random.randint(1,clientNumbers)
@@ -82,14 +84,53 @@ def guessNumbers(clientNumbers) : #this function generates a random number and y
             pause()
             break
         print("")
-   
-def guessNames() : #this function generates a name and you wanna shot the name
 
+def guessNameHouse():
+    clear()
+    # print("House function")
     myNameList = ['Davi', 'Luciano', 'Jocilene', 'Helena', 'Jorgina', 'Jose']
-    n = random.randint(0, 6)
+    maxList = max(myNameList)
+
+    n = random.randint(0 , 6)
     randomList = myNameList[n]
 
     print(randomList)
+    # n = random.randint(0, 6)
+
+    print("The names are " + (str(myNameList)) )
+    guess = str(input("Enter a names from 1 to "+ max(myNameList) +" persons:"))
+
+    # print(n)
+    
+    while 1 :
+        print ("")
+
+        if randomList != guess :
+            print("guess again")
+            # print("the name list are " + str(myNameList))
+            guess = str(input("Enter a names from 1 to 6 persons:"))
+
+        else :
+            print("you guessed it bro !!! congratulations")
+            pause() 
+            break
+        print("")
+
+def guessNamesSchool():
+    clear()
+    print("School function")
+    
+    myNameList = ['Antonio Farias', 'Antonio Gomes', 'Arthur', 'Beatriz', 'Binam', 'Bruno', 'Davi', 'David', 'Daniel', 'Duarte', 'Pedro', 'Leandro', 'Rafael']
+
+    maxList = max(myNameList)
+    minList = min(myNameList)
+    
+    n = random.randint(minList, maxList)
+    # print(n)
+    randomList = myNameList[n]
+
+    print(randomList)
+    # print("test = " + n)
     # n = random.randint(0, 6)
 
     print("The names are " + (str(myNameList)) )
@@ -110,6 +151,43 @@ def guessNames() : #this function generates a name and you wanna shot the name
             pause() 
             break
         print("")
+def guessNames() : #this function generates a name and you wanna shot the name
+    print("choose one")
+    choice = int(input("1_ House Random \n 2_school Random:"))
+
+    if choice == 1:
+      guessNameHouse()
+    elif choice == 2:
+      guessNamesSchool()
+    else:
+      print("??WHY??")
+      counting()
+      quit
+    # myNameList = ['Davi', 'Luciano', 'Jocilene', 'Helena', 'Jorgina', 'Jose']
+    # n = random.randint(0, 6)
+    # randomList = myNameList[n]
+
+    # print(randomList)
+    # # n = random.randint(0, 6)
+
+    # print("The names are " + (str(myNameList)) )
+    # guess = str(input("Enter a names from 1 to 6 persons:"))
+
+    # # print(n)
+    
+    # while 1 :
+    #     print ("")
+
+    #     if randomList != guess :
+    #         print("guess again")
+    #         # print("the name list are " + str(myNameList))
+    #         guess = str(input("Enter a names from 1 to 6 persons:"))
+
+    #     else :
+    #         print("you guessed it bro !!! congratulations")
+    #         pause() 
+    #         break
+    #     print("")
 
 def areNotReady(option) : #function for the person that aren't ready to play, and will close the programm after 3 secs  
     print("you joined in the areNotReady() function")
@@ -125,7 +203,7 @@ def wait(secs) : #function that freeze the screen during N secs using time.sleep
      time.sleep(secs)
 
 def clear() :  #clear the screen using the os.system("cls") or None
-    os.system("cls") or None
+    os.system("clear") or None
 
 def wellcomeFunction(): #function that says wellcome to guessing game, after will be upgraded
     
@@ -180,4 +258,3 @@ def distribution(): #function distribuiner of functions
         # break
 
 distribution()
-
