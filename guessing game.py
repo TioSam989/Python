@@ -85,29 +85,24 @@ def guessNumbers(clientNumbers) : #this function generates a random number and y
             break
         print("")
 
-def guessNameHouse():
+def guessNameHouse(): #this function is a name randon generator of the house 
     clear()
-    # print("House function")
     myNameList = ['Davi', 'Luciano', 'Jocilene', 'Helena', 'Jorgina', 'Jose']
-    maxList = max(myNameList)
+    maxList = (len(myNameList))-1
 
-    n = random.randint(0 , 6)
+    n = random.randint(0 , int(maxList))
     randomList = myNameList[n]
 
     print(randomList)
-    # n = random.randint(0, 6)
 
     print("The names are " + (str(myNameList)) )
-    guess = str(input("Enter a names from 1 to "+ max(myNameList) +" persons:"))
-
-    # print(n)
+    guess = str(input("Enter a names from 1 to "+ str(maxList) +" persons:"))
     
     while 1 :
         print ("")
 
         if randomList != guess :
             print("guess again")
-            # print("the name list are " + str(myNameList))
             guess = str(input("Enter a names from 1 to 6 persons:"))
 
         else :
@@ -116,34 +111,25 @@ def guessNameHouse():
             break
         print("")
 
-def guessNamesSchool():
+def guessNamesSchool(): #this function is a name randon generator of the school
     clear()
     print("School function")
     
-    myNameList = ['Antonio Farias', 'Antonio Gomes', 'Arthur', 'Beatriz', 'Binam', 'Bruno', 'Davi', 'David', 'Daniel', 'Duarte', 'Pedro', 'Leandro', 'Rafael']
+    myNameSchoolList = ['Antonio Farias', 'Antonio Gomes', 'Arthur', 'Beatriz', 'Binam', 'Bruno', 'Davi', 'David', 'Daniel', 'Duarte', 'Pedro', 'Leandro', 'Rafael']
 
-    maxList = max(myNameList)
-    minList = min(myNameList)
+    maxList = (len(myNameSchoolList))
+    n = random.randint(0,  int(maxList)-1)
+
+    randomList = myNameSchoolList[n]
     
-    n = random.randint(minList, maxList)
-    # print(n)
-    randomList = myNameList[n]
-
-    print(randomList)
-    # print("test = " + n)
-    # n = random.randint(0, 6)
-
-    print("The names are " + (str(myNameList)) )
-    guess = str(input("Enter a names from 1 to 6 persons:"))
-
-    # print(n)
+    print("The names are " + str(myNameSchoolList)) 
+    guess = str(input("Enter a names from 1 to "+ str(maxList) +" persons:"))
     
     while 1 :
         print ("")
 
         if randomList != guess :
             print("guess again")
-            # print("the name list are " + str(myNameList))
             guess = str(input("Enter a names from 1 to 6 persons:"))
 
         else :
@@ -151,6 +137,7 @@ def guessNamesSchool():
             pause() 
             break
         print("")
+
 def guessNames() : #this function generates a name and you wanna shot the name
     print("choose one")
     choice = int(input("1_ House Random \n 2_school Random:"))
@@ -203,7 +190,7 @@ def wait(secs) : #function that freeze the screen during N secs using time.sleep
      time.sleep(secs)
 
 def clear() :  #clear the screen using the os.system("cls") or None
-    os.system("clear") or None
+    os.system("cls") or None
 
 def wellcomeFunction(): #function that says wellcome to guessing game, after will be upgraded
     
